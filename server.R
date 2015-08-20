@@ -19,7 +19,7 @@ shinyServer(
                 split <- reactive({  strsplit(onlyAlpNum(),split=" +")   })
               
                 output$inputWords <- renderPrint({  t1<-as.vector(split())
-                                                    t1[[1g]]
+                                                    t1[[1]]
                                                 })
                 #output$prediction <- renderPrint({diabetesRisk(input$glucose)})
                 
