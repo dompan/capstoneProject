@@ -1,4 +1,4 @@
-#setwd("/home/leone/rwd/capstone")
+setwd("/home/leone/rwd/capstone")
 library(shiny)
 dfBigrams<-read.csv("bigrams.csv",header=TRUE)
 dfTrigrams<-read.csv("trigrams.csv",header=TRUE)
@@ -18,8 +18,11 @@ shinyServer(
                 onlyAlpNum <- reactive({  tolower(gsub("[^[:alnum:]]"," ",input$inText))  })
                 split <- reactive({  strsplit(onlyAlpNum(),split=" +")   })
               
-                output$inputWords <- renderPrint({  t1<-as.vector(split())
-                                                    t1[[1]]
+                output$inputWords <- renderPrint({  
+                                                   t1<-as.vector(split())
+                                                   if(length(t1[[1]])>0){
+                                                        t1[[1]]
+                                                   }        
                                                 })
                 #output$prediction <- renderPrint({diabetesRisk(input$glucose)})
                 
@@ -114,5 +117,19 @@ shinyServer(
                 #})
                 ###############################################################
                
+                ###############################################################
+                #      P U B L I S H    O N    S H I N Y A P P . I O  
+                # 1. Creare un repository vuoto su github
+                # 2. git clone <indirizzo> sul proprio hd
+                # 3. aggiungere i file fisicamente
+                # 4. git add <nomefile>
+                # 5. git commit -m "messaggio"
+                # 6. git push origin master [serve per upload su github]
+                # 7. Nella consol R mettersi nella cartella dove ci sono i file 
+                #    uplodati su github
+                # 8. library(shinyapps)
+                # 9. deployApp()
+                ###############################################################
+                
         }
 )
