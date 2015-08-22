@@ -1,4 +1,4 @@
-setwd("/home/leone/rwd/capstone")
+#setwd("/home/leone/rwd/capstone")
 library(shiny)
 dfBigrams<-read.csv("bigrams.csv",header=TRUE)
 dfTrigrams<-read.csv("trigrams.csv",header=TRUE)
